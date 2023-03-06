@@ -1,6 +1,7 @@
 import React from 'react';
-import {Image, TextInput} from 'react-native';
+import {Image, TextInput, TouchableOpacity} from 'react-native';
 import {View, Text, StyleSheet} from 'react-native';
+import {Divider} from '@rneui/themed';
 
 const styles = StyleSheet.create({
   footerView: {
@@ -8,7 +9,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: '#262626',
-    height: 200,
+    height: 400,
   },
   footerLogo: {
     width: 50,
@@ -21,6 +22,44 @@ const styles = StyleSheet.create({
     color: '#BDBDBD',
     width: 350,
     textAlign: 'center',
+  },
+  emailtextInput: {
+    borderColor: '#BDBDBD',
+    borderWidth: 1,
+    width: 350,
+    height: 40,
+    borderRadius: 5,
+    marginTop: 10,
+    paddingLeft: 10,
+  },
+  sendButton: {
+    backgroundColor: '#BDBDBD',
+    width: 350,
+    height: 40,
+    borderRadius: 5,
+    marginTop: 10,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  sendButtonText: {
+    color: '#000000',
+  },
+  kvkkText: {
+    color: '#BDBDBD',
+    width: 350,
+    textAlign: 'center',
+    marginTop: 10,
+  },
+  bottomSocailMediaLogos: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    width: 350,
+    marginTop: 10,
+  },
+  socialMediaLogo: {
+    width: 20,
+    height: 20,
   },
 });
 
@@ -38,9 +77,86 @@ export default function Footer() {
       </Text>
 
       <TextInput
+        placeholderTextColor={'#BDBDBD'}
         style={styles.emailtextInput}
-        placeholder="E-posta adresinizi girin"
+        placeholder="E-mail adresin"
       />
+
+      <TouchableOpacity style={styles.sendButton}>
+        <Text style={styles.sendButtonText}>Gönder</Text>
+      </TouchableOpacity>
+
+      <Text style={styles.kvkkText}>
+        Abone olarak, beije KVKK ve Gizlilik Politikası'nı kabul ediyor ve
+        beije'den haber almayı onaylıyorum.
+      </Text>
+
+      <View style={{flexDirection: 'row', marginTop: 10}}>
+        <View style={{flexDirection: 'column', marginTop: 10}}>
+          <TouchableOpacity>
+            <Text style={{color: '#BDBDBD'}}>Paketler</Text>
+          </TouchableOpacity>
+
+          <TouchableOpacity>
+            <Text style={{color: '#BDBDBD'}}>Deneme Paketi</Text>
+          </TouchableOpacity>
+
+          <TouchableOpacity>
+            <Text style={{color: '#BDBDBD'}}>Ekibimize Katıl</Text>
+          </TouchableOpacity>
+        </View>
+
+        <View style={{flexDirection: 'column', marginTop: 10}}>
+          <TouchableOpacity>
+            <Text style={{color: '#BDBDBD'}}>Blog</Text>
+          </TouchableOpacity>
+
+          <TouchableOpacity>
+            <Text style={{color: '#BDBDBD'}}>Sıkça Sorulan Sorular</Text>
+          </TouchableOpacity>
+
+          <TouchableOpacity>
+            <Text style={{color: '#BDBDBD'}}>Biz Kimiz?</Text>
+          </TouchableOpacity>
+        </View>
+      </View>
+
+      <View style={styles.bottomSocailMediaLogos}>
+        <TouchableOpacity>
+          <Image
+            style={styles.socialMediaLogo}
+            source={require('./facebook.png')}
+          />
+        </TouchableOpacity>
+
+        <TouchableOpacity>
+          <Image
+            style={styles.socialMediaLogo}
+            source={require('./instagram.png')}
+          />
+        </TouchableOpacity>
+
+        <TouchableOpacity>
+          <Image
+            style={styles.socialMediaLogo}
+            source={require('./twitter.png')}
+          />
+        </TouchableOpacity>
+
+        <TouchableOpacity>
+          <Image
+            style={styles.socialMediaLogo}
+            source={require('./linkedin.png')}
+          />
+        </TouchableOpacity>
+
+        <TouchableOpacity>
+          <Image
+            style={styles.socialMediaLogo}
+            source={require('./spotify.png')}
+          />
+        </TouchableOpacity>
+      </View>
     </View>
   );
 }
