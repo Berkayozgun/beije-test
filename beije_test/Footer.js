@@ -1,7 +1,7 @@
 import React from 'react';
 import {Image, TextInput, TouchableOpacity} from 'react-native';
 import {View, Text, StyleSheet} from 'react-native';
-import {Divider} from '@rneui/themed';
+import Divider from './Divider';
 
 const styles = StyleSheet.create({
   footerView: {
@@ -9,7 +9,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: '#262626',
-    height: 400,
+    height: 600,
   },
   footerLogo: {
     width: 50,
@@ -59,6 +59,17 @@ const styles = StyleSheet.create({
   },
   socialMediaLogo: {
     width: 20,
+    height: 20,
+  },
+  paymentMethods: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    width: 110,
+    marginTop: 10,
+  },
+  paymentMethodLogo: {
+    width: 50,
     height: 20,
   },
 });
@@ -156,6 +167,61 @@ export default function Footer() {
             source={require('./spotify.png')}
           />
         </TouchableOpacity>
+      </View>
+      <Divider />
+
+      <View style={styles.footerUnderDividerText}>
+        <Text style={{color: '#BDBDBD', fontWeight: 'bold'}}>
+          2023 beije. Tüm hakları saklıdır.
+        </Text>
+
+        <TouchableOpacity>
+          <Text style={{color: '#BDBDBD'}}>KVKK Aydınlatma Metni</Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity>
+          <Text style={{color: '#BDBDBD'}}>Üyelik Sözleşmesi</Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity>
+          <Text style={{color: '#BDBDBD'}}>Gizlilik Politikası</Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity>
+          <Text style={{color: '#BDBDBD'}}>Çerez Politikası</Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity>
+          <Text style={{color: '#BDBDBD'}}>Test Sonuçları</Text>
+        </TouchableOpacity>
+
+        <View style={{flexDirection: 'row'}}>
+          <TouchableOpacity>
+            <Text style={{color: '#BDBDBD'}}>EN</Text>
+          </TouchableOpacity>
+
+          <Text style={{color: '#BDBDBD'}}> | </Text>
+
+          <TouchableOpacity>
+            <Text style={{color: '#BDBDBD'}}>TR</Text>
+          </TouchableOpacity>
+        </View>
+
+        <View style={styles.paymentMethods}>
+          <TouchableOpacity>
+            <Image
+              style={styles.paymentMethodLogo}
+              source={require('./visa.png')}
+            />
+          </TouchableOpacity>
+
+          <TouchableOpacity>
+            <Image
+              style={styles.paymentMethodLogo}
+              source={require('./mastercard.png')}
+            />
+          </TouchableOpacity>
+        </View>
       </View>
     </View>
   );
