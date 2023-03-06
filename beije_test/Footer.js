@@ -50,6 +50,19 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     marginTop: 10,
   },
+  sixGrid: {
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    alignItems: 'center',
+    width: 350,
+    marginTop: 10,
+  },
+  sixGridText: {
+    color: '#ffffff',
+    marginBottom: 10,
+    alignSelf: 'center',
+    justifyContent: 'center',
+  },
   bottomSocailMediaLogos: {
     flexDirection: 'row',
     justifyContent: 'space-between',
@@ -102,32 +115,32 @@ export default function Footer() {
         beije'den haber almayı onaylıyorum.
       </Text>
 
-      <View style={{flexDirection: 'row', marginTop: 10}}>
+      <View style={styles.sixGrid}>
         <View style={{flexDirection: 'column', marginTop: 10}}>
           <TouchableOpacity>
-            <Text style={{color: '#BDBDBD'}}>Paketler</Text>
+            <Text style={styles.sixGridText}>Paketler</Text>
           </TouchableOpacity>
 
           <TouchableOpacity>
-            <Text style={{color: '#BDBDBD'}}>Deneme Paketi</Text>
+            <Text style={styles.sixGridText}>Deneme Paketi</Text>
           </TouchableOpacity>
 
           <TouchableOpacity>
-            <Text style={{color: '#BDBDBD'}}>Ekibimize Katıl</Text>
+            <Text style={styles.sixGridText}>Ekibimize Katıl</Text>
           </TouchableOpacity>
         </View>
 
         <View style={{flexDirection: 'column', marginTop: 10}}>
           <TouchableOpacity>
-            <Text style={{color: '#BDBDBD'}}>Blog</Text>
+            <Text style={styles.sixGridText}>Blog</Text>
           </TouchableOpacity>
 
           <TouchableOpacity>
-            <Text style={{color: '#BDBDBD'}}>Sıkça Sorulan Sorular</Text>
+            <Text style={styles.sixGridText}>Sıkça Sorulan Sorular</Text>
           </TouchableOpacity>
 
           <TouchableOpacity>
-            <Text style={{color: '#BDBDBD'}}>Biz Kimiz?</Text>
+            <Text style={styles.sixGridText}>Biz Kimiz?</Text>
           </TouchableOpacity>
         </View>
       </View>
