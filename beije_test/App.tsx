@@ -18,6 +18,8 @@ import {
 } from 'react-native/Libraries/NewAppScreen';
 
 import CustomHeader from './CustomHeader';
+import Body from './Body';
+import Footer from './Footer';
 
 
 
@@ -40,7 +42,8 @@ function App(): JSX.Element {
       <ScrollView
         contentInsetAdjustmentBehavior="automatic"
         style={backgroundStyle}>
-        
+        <Body/>
+        <Footer/>
        
       </ScrollView>
     </SafeAreaView>
