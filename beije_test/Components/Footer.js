@@ -6,14 +6,14 @@ import Divider from './Divider';
 const styles = StyleSheet.create({
   footerView: {
     flexDirection: 'column',
-    justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: '#262626',
-    height: 1050,
+    height: 1150,
   },
   footerLogo: {
     width: 100,
     height: 50,
+    marginTop: 50,
   },
   footerHeaderText: {
     color: '#BDBDBD',
@@ -243,14 +243,14 @@ export default function Footer() {
           <TouchableOpacity>
             <Image
               style={styles.paymentMethodLogo}
-              source={require('../Images/visa.png')}
+              source={require('../Images/mastercard.png')}
             />
           </TouchableOpacity>
 
           <TouchableOpacity>
             <Image
               style={styles.paymentMethodLogo}
-              source={require('../Images/mastercard.png')}
+              source={require('../Images/visa.png')}
             />
           </TouchableOpacity>
         </View>

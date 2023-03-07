@@ -248,7 +248,6 @@ export default function Body(props) {
           }}
         />
         <Text style={{paddingTop: 20}}>{superPlusValue}</Text>
-        <Text style={{paddingTop: 20}}>Toplam : {totalPrice} TL </Text>
 
         <Modal
           animationType="slide"
