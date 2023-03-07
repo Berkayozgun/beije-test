@@ -74,23 +74,24 @@ const styles = StyleSheet.create({
     marginTop: 25,
   },
   centeredView: {
-    flex: 1,
+    display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
-    marginTop: 22,
+    marginTop: 70,
   },
   modalView: {
-    margin: 20,
+    width: 350,
+    height: 500,
     backgroundColor: 'white',
-    borderRadius: 20,
-    padding: 35,
+    justifyContent: 'center',
+    alignSelf: 'center',
     alignItems: 'center',
     shadowColor: '#000',
     shadowOffset: {
-      width: 0,
-      height: 2,
+      width: 5,
+      height: 5,
     },
-    shadowOpacity: 0.25,
+    shadowOpacity: 1,
     shadowRadius: 4,
     elevation: 5,
   },
@@ -249,23 +250,46 @@ export default function Body(props) {
         />
         <Text style={{paddingTop: 20}}>{superPlusValue}</Text>
 
-        <Modal
-          animationType="slide"
-          transparent={true}
-          visible={modalVisible}
-          onRequestClose={() => {
-            Alert.alert('Modal has been closed.');
-          }}>
+        <Modal animationType="slide" transparent={true} visible={modalVisible}>
           <View style={styles.centeredView}>
             <View style={styles.modalView}>
-              <Text style={styles.modalText}>
-                Sepete Ekle ({totalPrice} TL)
-              </Text>
-              <TouchableOpacity
-                style={[styles.button, styles.buttonClose]}
-                onPress={() => setModalVisible(!modalVisible)}>
-                <Text style={styles.textStyle}>Hide Modal</Text>
-              </TouchableOpacity>
+              <Text style={styles.modalHeader}>Özel Paketin</Text>
+
+              <View style={styles.modalShippingFreq}>
+                <Text style={styles.modalShippingFreqText}>
+                  2 ayda 1 gönderim
+                </Text>
+
+                <View style={styles.shippingSummary}>
+                  <Text style={styles.shippingSummaryHeader}>
+                    Ped Paketleri
+                  </Text>
+
+                  <Text style={styles.shippingSummaryText}>
+                    {standartValue} adet standart ped
+                    {superValue} adet süper ped
+                    {superPlusValue} adet süper+ ped
+                  </Text>
+
+                  <TouchableOpacity style={styles.deleteFromBucket}>
+                    <Text style={styles.deleteFromBucketText}>
+                      Paketten Çıkar
+                    </Text>
+                  </TouchableOpacity>
+
+                  <TouchableOpacity style={styles.addToBucket}>
+                    <Text style={styles.addToBucketText}>
+                      Sepete Ekle {totalPrice}
+                    </Text>
+                  </TouchableOpacity>
+
+                  <TouchableOpacity
+                    style={[styles.button, styles.buttonClose]}
+                    onPress={() => setModalVisible(!modalVisible)}>
+                    <Text style={styles.textStyle}>Hide Modal</Text>
+                  </TouchableOpacity>
+                </View>
+              </View>
             </View>
           </View>
         </Modal>
