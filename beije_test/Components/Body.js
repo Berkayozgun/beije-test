@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
+import {View, Text, StyleSheet, TouchableOpacity, Modal} from 'react-native';
 import {Tab, TabView, Slider, Icon} from '@rneui/themed';
 
 const styles = StyleSheet.create({
@@ -73,13 +73,55 @@ const styles = StyleSheet.create({
     borderRadius: 25,
     marginTop: 25,
   },
+  centeredView: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginTop: 22,
+  },
+  modalView: {
+    margin: 20,
+    backgroundColor: 'white',
+    borderRadius: 20,
+    padding: 35,
+    alignItems: 'center',
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 4,
+    elevation: 5,
+  },
 });
 
-export default function Body() {
+export default function Body(props) {
   const [index, setIndex] = useState(0);
+
   const [standartValue, setStandartValue] = useState(0);
   const [superValue, setSuperValue] = useState(0);
   const [superPlusValue, setSuperPlusValue] = useState(0);
+
+  const handleSliderStandart = value => {
+    setStandartValue(value);
+  };
+
+  const handleSliderSuper = value => {
+    setSuperValue(value);
+  };
+
+  const handleSliderSuperPlus = value => {
+    setSuperPlusValue(value);
+  };
+
+  const totalPrice = (
+    (standartValue / 10) * 29.73 +
+    (superValue / 10) * 33.27 +
+    (superPlusValue / 10) * 37.48
+  ).toFixed(2);
+
+  const [modalVisible, setModalVisible] = useState(false);
 
   return (
     <View style={styles.bodyContainer}>
@@ -114,7 +156,7 @@ export default function Body() {
         <Text style={styles.pedCesitleriTitle}>Standart Ped</Text>
         <Slider
           value={standartValue}
-          onValueChange={setStandartValue}
+          onValueChange={value => handleSliderStandart(value)}
           maximumValue={60}
           minimumValue={0}
           step={10}
@@ -146,7 +188,7 @@ export default function Body() {
         <Text style={styles.pedCesitleriTitle}>Süper Ped</Text>
         <Slider
           value={superValue}
-          onValueChange={setSuperValue}
+          onValueChange={value => handleSliderSuper(value)}
           maximumValue={60}
           minimumValue={0}
           step={10}
@@ -178,7 +220,7 @@ export default function Body() {
         <Text style={styles.pedCesitleriTitle}>Süper+ Ped</Text>
         <Slider
           value={superPlusValue}
-          onValueChange={setSuperPlusValue}
+          onValueChange={value => handleSliderSuperPlus(value)}
           maximumValue={60}
           minimumValue={0}
           step={10}
@@ -206,7 +248,32 @@ export default function Body() {
           }}
         />
         <Text style={{paddingTop: 20}}>{superPlusValue}</Text>
-        <TouchableOpacity style={styles.seePackageButton}>
+        <Text style={{paddingTop: 20}}>Toplam : {totalPrice} TL </Text>
+
+        <Modal
+          animationType="slide"
+          transparent={true}
+          visible={modalVisible}
+          onRequestClose={() => {
+            Alert.alert('Modal has been closed.');
+          }}>
+          <View style={styles.centeredView}>
+            <View style={styles.modalView}>
+              <Text style={styles.modalText}>
+                Sepete Ekle ({totalPrice} TL)
+              </Text>
+              <TouchableOpacity
+                style={[styles.button, styles.buttonClose]}
+                onPress={() => setModalVisible(!modalVisible)}>
+                <Text style={styles.textStyle}>Hide Modal</Text>
+              </TouchableOpacity>
+            </View>
+          </View>
+        </Modal>
+
+        <TouchableOpacity
+          style={styles.seePackageButton}
+          onPress={() => setModalVisible(!modalVisible)}>
           <Text
             style={{
               color: '#fff',
