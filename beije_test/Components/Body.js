@@ -1,29 +1,25 @@
 import React, {useState} from 'react';
-import {
-  View,
-  Text,
-  StyleSheet,
-  Button,
-  Touchable,
-  TouchableOpacity,
-} from 'react-native';
+import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
 import {Tab, TabView, Slider, Icon} from '@rneui/themed';
 
 const styles = StyleSheet.create({
   bodyContainer: {
+    fontFamily: 'Gordita',
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: '#F9F5F2',
     alignItems: 'center',
-    height: 800,
+    height: 850,
   },
   bodyHeader: {
+    fontFamily: 'Gordita',
     fontSize: 32,
     fontWeight: 'semibold',
-    color: '#000',
+    color: '#000000',
     textAlign: 'left',
     marginTop: 100,
   },
   bodyText: {
+    fontFamily: 'Gordita',
     fontSize: 20,
     color: 'grey',
     textAlign: 'left',
@@ -32,23 +28,33 @@ const styles = StyleSheet.create({
     marginTop: 20,
   },
   tabText: {
+    fontFamily: 'Gordita',
     fontSize: 16,
-    fontWeight: 'semibold',
-    color: '#BDBDBD',
-    height: 75,
+    fontWeight: '700',
+    color: '#000000',
+    height: 100,
+    width: 100,
+    textAlign: 'center',
+    justifyContent: 'center',
+    alignContent: 'center',
+    display: 'flex',
   },
 
   tabContainer: {
+    fontFamily: 'Gordita',
+    backgroundColor: '#F9F5F2',
     width: 350,
     height: 75,
     marginTop: 20,
   },
   tabviewContainer: {
+    fontFamily: 'Gordita',
     width: 350,
     height: 300,
     marginTop: 20,
   },
   pedCesitleriTitle: {
+    fontFamily: 'Gordita',
     fontSize: 20,
     fontWeight: 'semibold',
     color: '#000',
@@ -58,11 +64,12 @@ const styles = StyleSheet.create({
     marginTop: 2,
   },
   seePackageButton: {
+    fontFamily: 'Gordita',
     width: 350,
     height: 50,
     backgroundColor: '#000',
-    borderRadius: 10,
-    marginTop: 10,
+    borderRadius: 25,
+    marginTop: 25,
   },
 });
 
@@ -101,7 +108,7 @@ export default function Body() {
         style={styles.tabviewContainer}>
         <TabView.Item></TabView.Item>
       </TabView>
-      <View style={{width: 350, height: 400}}>
+      <View style={{width: 350, height: 450}}>
         <Text style={styles.pedCesitleriTitle}>Standart Ped</Text>
         <Slider
           value={standartValue}

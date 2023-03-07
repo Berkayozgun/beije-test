@@ -92,7 +92,7 @@ export default function Footer() {
     <View style={styles.footerView}>
       <Image
         style={styles.footerLogo}
-        source={require('./beije_black_logo.png')}
+        source={require('../Images/beije_black_logo.png')}
       />
 
       <Text style={styles.footerHeaderText}>Arayı açmayalım!</Text>
@@ -149,35 +149,35 @@ export default function Footer() {
         <TouchableOpacity>
           <Image
             style={styles.socialMediaLogo}
-            source={require('./facebook.png')}
+            source={require('../Images/facebook.png')}
           />
         </TouchableOpacity>
 
         <TouchableOpacity>
           <Image
             style={styles.socialMediaLogo}
-            source={require('./instagram.png')}
+            source={require('../Images/instagram.png')}
           />
         </TouchableOpacity>
 
         <TouchableOpacity>
           <Image
             style={styles.socialMediaLogo}
-            source={require('./twitter.png')}
+            source={require('../Images/twitter.png')}
           />
         </TouchableOpacity>
 
         <TouchableOpacity>
           <Image
             style={styles.socialMediaLogo}
-            source={require('./linkedin.png')}
+            source={require('../Images/linkedin.png')}
           />
         </TouchableOpacity>
 
         <TouchableOpacity>
           <Image
             style={styles.socialMediaLogo}
-            source={require('./spotify.png')}
+            source={require('../Images/spotify.png')}
           />
         </TouchableOpacity>
       </View>
@@ -224,14 +224,14 @@ export default function Footer() {
           <TouchableOpacity>
             <Image
               style={styles.paymentMethodLogo}
-              source={require('./visa.png')}
+              source={require('../Images/visa.png')}
             />
           </TouchableOpacity>
 
           <TouchableOpacity>
             <Image
               style={styles.paymentMethodLogo}
-              source={require('./mastercard.png')}
+              source={require('../Images/mastercard.png')}
             />
           </TouchableOpacity>
         </View>

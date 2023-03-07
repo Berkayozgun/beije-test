@@ -44,25 +44,31 @@ export default function CustomHeader() {
   return (
     <View style={styles.headerView}>
       <TouchableOpacity>
-        <Image style={styles.beijeLogo} source={require('./beije_logo.png')} />
+        <Image
+          style={styles.beijeLogo}
+          source={require('../Images/beije_logo.png')}
+        />
       </TouchableOpacity>
 
       <View style={styles.sideHeaderBar}>
         <TouchableOpacity>
           <Image
             style={styles.shoppingcart}
-            source={require('./shoppingcart.png')}
+            source={require('../Images/shoppingcart.png')}
           />
         </TouchableOpacity>
 
         <TouchableOpacity>
-          <Image style={styles.profile} source={require('./profile.png')} />
+          <Image
+            style={styles.profile}
+            source={require('../Images/profile.png')}
+          />
         </TouchableOpacity>
 
         <TouchableOpacity>
           <Image
             style={styles.hamburgerMenu}
-            source={require('./hamburgermenu.png')}
+            source={require('../Images/hamburgermenu.png')}
           />
         </TouchableOpacity>
       </View>
