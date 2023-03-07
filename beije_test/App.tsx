@@ -17,9 +17,9 @@ import {
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 
-import CustomHeader from './CustomHeader';
-import Body from './Body';
-import Footer from './Footer';
+import CustomHeader from './Components/CustomHeader';
+import Body from './Components/Body';
+import Footer from './Components/Footer';
 
 
 
