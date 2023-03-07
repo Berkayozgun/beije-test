@@ -9,57 +9,66 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: '#262626',
-    height: 600,
+    height: 1050,
   },
   footerLogo: {
-    width: 50,
-    height: 20,
+    width: 100,
+    height: 50,
   },
   footerHeaderText: {
     color: '#BDBDBD',
+    fontSize: 20,
+    fontWeight: '700',
   },
   footerSubText: {
     color: '#BDBDBD',
     width: 350,
     textAlign: 'center',
+    marginTop: 10,
+    fontSize: 16,
   },
   emailtextInput: {
     borderColor: '#BDBDBD',
-    borderWidth: 1,
+    borderWidth: 0.5,
     width: 350,
     height: 40,
     borderRadius: 5,
-    marginTop: 10,
-    paddingLeft: 10,
+    marginTop: 25,
+    paddingLeft: 15,
+    fontSize: 16,
   },
   sendButton: {
-    backgroundColor: '#BDBDBD',
+    backgroundColor: '#ffffff',
     width: 350,
-    height: 40,
-    borderRadius: 5,
-    marginTop: 10,
+    height: 50,
+    borderRadius: 25,
+    marginTop: 20,
     justifyContent: 'center',
     alignItems: 'center',
   },
   sendButtonText: {
     color: '#000000',
+    fontSize: 16,
+    fontWeight: '500',
   },
   kvkkText: {
     color: '#BDBDBD',
     width: 350,
     textAlign: 'center',
-    marginTop: 10,
+    marginTop: 20,
   },
   sixGrid: {
     flexDirection: 'row',
     justifyContent: 'space-around',
     alignItems: 'center',
     width: 350,
-    marginTop: 10,
+    marginTop: 50,
   },
   sixGridText: {
     color: '#ffffff',
-    marginBottom: 10,
+    fontSize: 16,
+    fontWeight: '500',
+    marginTop: 15,
     alignSelf: 'center',
     justifyContent: 'center',
   },
@@ -68,18 +77,25 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center',
     width: 350,
-    marginTop: 10,
+    marginTop: 70,
   },
   socialMediaLogo: {
-    width: 20,
-    height: 20,
+    width: 30,
+    height: 30,
+  },
+  footerUnderDividerText: {
+    color: '#BDBDBD',
+    margin: 10,
+    marginTop: 20,
+    justifyContent: 'center',
+    alignSelf: 'center',
   },
   paymentMethods: {
     flexDirection: 'row',
-    justifyContent: 'space-between',
+    justifyContent: 'space-around',
     alignItems: 'center',
-    width: 110,
-    marginTop: 10,
+    width: 150,
+    marginLeft: 40,
   },
   paymentMethodLogo: {
     width: 50,
@@ -103,7 +119,7 @@ export default function Footer() {
       <TextInput
         placeholderTextColor={'#BDBDBD'}
         style={styles.emailtextInput}
-        placeholder="E-mail adresin"
+        placeholder="e-mail adresin"
       />
 
       <TouchableOpacity style={styles.sendButton}>
@@ -183,32 +199,35 @@ export default function Footer() {
       </View>
       <Divider />
 
-      <View style={styles.footerUnderDividerText}>
-        <Text style={{color: '#BDBDBD', fontWeight: 'bold'}}>
+      <View style={styles.footerUnderDivider}>
+        <Text style={{color: '#BDBDBD', fontWeight: 'bold', margin: 15}}>
           2023 beije. Tüm hakları saklıdır.
         </Text>
 
         <TouchableOpacity>
-          <Text style={{color: '#BDBDBD'}}>KVKK Aydınlatma Metni</Text>
+          <Text style={styles.footerUnderDividerText}>
+            KVKK Aydınlatma Metni
+          </Text>
         </TouchableOpacity>
 
         <TouchableOpacity>
-          <Text style={{color: '#BDBDBD'}}>Üyelik Sözleşmesi</Text>
+          <Text style={styles.footerUnderDividerText}>Üyelik Sözleşmesi</Text>
         </TouchableOpacity>
 
         <TouchableOpacity>
-          <Text style={{color: '#BDBDBD'}}>Gizlilik Politikası</Text>
+          <Text style={styles.footerUnderDividerText}>Gizlilik Politikası</Text>
         </TouchableOpacity>
 
         <TouchableOpacity>
-          <Text style={{color: '#BDBDBD'}}>Çerez Politikası</Text>
+          <Text style={styles.footerUnderDividerText}>Çerez Politikası</Text>
         </TouchableOpacity>
 
         <TouchableOpacity>
-          <Text style={{color: '#BDBDBD'}}>Test Sonuçları</Text>
+          <Text style={styles.footerUnderDividerText}>Test Sonuçları</Text>
         </TouchableOpacity>
 
-        <View style={{flexDirection: 'row'}}>
+        <View
+          style={{flexDirection: 'row', justifyContent: 'center', margin: 20}}>
           <TouchableOpacity>
             <Text style={{color: '#BDBDBD'}}>EN</Text>
           </TouchableOpacity>
