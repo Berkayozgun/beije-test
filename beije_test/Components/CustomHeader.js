@@ -15,28 +15,31 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: '#f5f5f5',
     height: 50,
-    padding: 10,
+    paddingLeft: 40,
+    paddingTop: 20,
   },
   sideHeaderBar: {
     flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
+    paddingRight: 40,
   },
   beijeLogo: {
-    width: 50,
-    height: 20,
+    width: 70,
+    height: 40,
   },
   shoppingcart: {
-    width: 20,
-    height: 20,
+    width: 30,
+    height: 30,
+    margin: 10,
   },
   profile: {
-    width: 20,
-    height: 20,
+    width: 30,
+    height: 30,
+    margin: 10,
   },
   hamburgerMenu: {
-    width: 20,
-    height: 20,
+    width: 30,
+    height: 30,
+    margin: 10,
   },
 });
 

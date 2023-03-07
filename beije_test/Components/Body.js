@@ -12,11 +12,13 @@ const styles = StyleSheet.create({
   },
   bodyHeader: {
     fontFamily: 'Gordita',
-    fontSize: 32,
-    fontWeight: 'semibold',
+    fontSize: 34,
+    fontWeight: 600,
     color: '#000000',
     textAlign: 'left',
     marginTop: 100,
+    lineHeight: 40,
+    letterSpacing: 0.5,
   },
   bodyText: {
     fontFamily: 'Gordita',
