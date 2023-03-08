@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import {View, Text, StyleSheet, TouchableOpacity, Modal} from 'react-native';
 import {Tab, TabView, Slider, Icon} from '@rneui/themed';
+import {Image} from '@rneui/base';
 
 const styles = StyleSheet.create({
   bodyContainer: {
@@ -28,6 +29,7 @@ const styles = StyleSheet.create({
     width: 350,
     lineHeight: 30,
     marginTop: 20,
+    alignSelf: 'center',
   },
   tabText: {
     fontFamily: 'Gordita',
@@ -77,15 +79,56 @@ const styles = StyleSheet.create({
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
-    marginTop: 70,
+    flex: 1,
+    backgroundColor: 'rgba(0,0,0,0.5)',
   },
   modalView: {
-    width: 350,
-    height: 500,
+    width: 370,
+    height: 570,
     backgroundColor: 'white',
-    justifyContent: 'center',
-    alignSelf: 'center',
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 20,
+      height: 20,
+    },
+    shadowOpacity: 500,
+    shadowRadius: 4,
+    elevation: 200,
+    display: 'flex',
+    alignContent: 'center',
     alignItems: 'center',
+  },
+  modalHeaderContainer: {
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    width: 350,
+  },
+  modalHeader: {
+    fontFamily: 'Gordita',
+    fontSize: 20,
+    fontWeight: 'semibold',
+    color: '#000',
+    textAlign: 'left',
+    width: 150,
+    lineHeight: 30,
+    margin: 20,
+  },
+  closeButton: {
+    width: 40,
+    height: 40,
+    alignItems: 'center',
+    marginRight: 20,
+  },
+  closeButtonImage: {
+    width: 40,
+    height: 40,
+  },
+  modalShippingFreq: {
+    width: 300,
+    height: 50,
+    backgroundColor: '#Ffffff',
     shadowColor: '#000',
     shadowOffset: {
       width: 5,
@@ -94,10 +137,105 @@ const styles = StyleSheet.create({
     shadowOpacity: 1,
     shadowRadius: 4,
     elevation: 5,
+    display: 'flex',
+    flexDirection: 'row',
+    alignItems: 'center',
+    alignSelf: 'center',
+  },
+  shippingFreqIcon: {
+    width: 30,
+    height: 30,
+    marginLeft: 10,
+  },
+  modalShippingFreqText: {
+    fontFamily: 'Gordita',
+    fontSize: 16,
+    fontWeight: 'semibold',
+    color: '#000',
+    textAlign: 'left',
+    width: 150,
+    lineHeight: 30,
+    marginLeft: 10,
+  },
+  modalImage: {
+    width: 300,
+    height: 140,
+    alignSelf: 'center',
+    margin: 20,
+  },
+  shippingSummary: {
+    width: 300,
+    height: 130,
+    backgroundColor: '#Ffffff',
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 5,
+      height: 5,
+    },
+    shadowOpacity: 1,
+    shadowRadius: 4,
+    elevation: 5,
+    display: 'flex',
+    flexDirection: 'column',
+    margin: 20,
+  },
+  shippingSummaryHeader: {
+    fontFamily: 'Gordita',
+    fontSize: 16,
+    fontWeight: 'bold',
+    color: '#000',
+    textAlign: 'left',
+    width: 150,
+    lineHeight: 30,
+    marginLeft: 20,
+    marginTop: 10,
+  },
+  shippingSummaryText: {
+    fontFamily: 'Gordita',
+    fontSize: 14,
+    fontWeight: 'normal',
+    color: 'grey',
+    textAlign: 'left',
+    width: 250,
+    marginLeft: 20,
+  },
+  deleteFromBucket: {
+    width: 100,
+    height: 30,
+  },
+  deleteFromBucketText: {
+    fontFamily: 'Gordita',
+    fontSize: 14,
+    fontWeight: 'bold',
+    color: 'black',
+    textAlign: 'left',
+    width: 100,
+    marginLeft: 20,
+    marginTop: 10,
+  },
+  addToBucket: {
+    width: 300,
+    height: 50,
+    backgroundColor: '#000',
+    borderRadius: 25,
+    marginTop: 15,
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  addToBucketText: {
+    fontFamily: 'Gordita',
+    fontSize: 16,
+    fontWeight: 'bold',
+    color: '#fff',
+    textAlign: 'center',
+    width: 250,
+    lineHeight: 30,
   },
 });
 
-export default function Body(props) {
+export default function Body() {
   const [index, setIndex] = useState(0);
 
   const [standartValue, setStandartValue] = useState(0);
@@ -151,7 +289,9 @@ export default function Body(props) {
         onChange={setIndex}
         animationType="spring"
         style={styles.tabviewContainer}>
-        <TabView.Item></TabView.Item>
+        <TabView.Item> red</TabView.Item>
+        <TabView.Item>blue</TabView.Item>
+        <TabView.Item>green</TabView.Item>
       </TabView>
       <View style={{width: 350, height: 450}}>
         <Text style={styles.pedCesitleriTitle}>Standart Ped</Text>
@@ -253,43 +393,54 @@ export default function Body(props) {
         <Modal animationType="slide" transparent={true} visible={modalVisible}>
           <View style={styles.centeredView}>
             <View style={styles.modalView}>
-              <Text style={styles.modalHeader}>Özel Paketin</Text>
+              <View style={styles.modalHeaderContainer}>
+                <Text style={styles.modalHeader}>Özel Paketin</Text>
+
+                <TouchableOpacity style={styles.closeButton}>
+                  <Image
+                    style={styles.closeButtonImage}
+                    source={require('../Images/exitModal.png')}
+                    onPress={() => {
+                      setModalVisible(!modalVisible);
+                    }}
+                  />
+                </TouchableOpacity>
+              </View>
 
               <View style={styles.modalShippingFreq}>
+                <Image
+                  style={styles.shippingFreqIcon}
+                  source={require('../Images/loop.png')}
+                />
                 <Text style={styles.modalShippingFreqText}>
                   2 ayda 1 gönderim
                 </Text>
-
-                <View style={styles.shippingSummary}>
-                  <Text style={styles.shippingSummaryHeader}>
-                    Ped Paketleri
-                  </Text>
-
-                  <Text style={styles.shippingSummaryText}>
-                    {standartValue} adet standart ped
-                    {superValue} adet süper ped
-                    {superPlusValue} adet süper+ ped
-                  </Text>
-
-                  <TouchableOpacity style={styles.deleteFromBucket}>
-                    <Text style={styles.deleteFromBucketText}>
-                      Paketten Çıkar
-                    </Text>
-                  </TouchableOpacity>
-
-                  <TouchableOpacity style={styles.addToBucket}>
-                    <Text style={styles.addToBucketText}>
-                      Sepete Ekle {totalPrice}
-                    </Text>
-                  </TouchableOpacity>
-
-                  <TouchableOpacity
-                    style={[styles.button, styles.buttonClose]}
-                    onPress={() => setModalVisible(!modalVisible)}>
-                    <Text style={styles.textStyle}>Hide Modal</Text>
-                  </TouchableOpacity>
-                </View>
               </View>
+
+              <Image
+                style={styles.modalImage}
+                source={require('../Images/beije_modal_image.png')}
+              />
+
+              <View style={styles.shippingSummary}>
+                <Text style={styles.shippingSummaryHeader}>Ped Paketleri</Text>
+
+                <Text style={styles.shippingSummaryText}>
+                  {standartValue} Standart Ped, {superValue} Süper Ped,{' '}
+                  {superPlusValue} Süper+ Ped
+                </Text>
+
+                <TouchableOpacity style={styles.deleteFromBucket}>
+                  <Text style={styles.deleteFromBucketText}>
+                    Paketten Çıkar
+                  </Text>
+                </TouchableOpacity>
+              </View>
+              <TouchableOpacity style={styles.addToBucket}>
+                <Text style={styles.addToBucketText}>
+                  Sepete Ekle (₺{totalPrice})
+                </Text>
+              </TouchableOpacity>
             </View>
           </View>
         </Modal>
